@@ -40,11 +40,14 @@ def analyze_cash_on_hand(CoH):
         return f"[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS DAY\
             \n[CASH DEFICIT] DAY:{cash_changesday}, AMOUNT: SGD{cash_changes}"
         
+
     else:
+        # print(f"[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS DAY")
+        print(F"[HIGHEST PROFIT DEFICIT] DAY: {highestdecrementday}, AMOUNT: SGD{abs(highestdecrement)}")
+
         deficits.sort(reverse=True)
-        return f"[HIGHEST CASH DEFICIT] DAY:{deficits[0][1]}, AMOUNT: SGD{abs(deficits[0][0])}\
-            \n[2ND  HIGHEST CASH DEFICIT] DAY:{deficits[1][1]}, AMOUNT: SGD{abs(deficits[1][0])}\
-            \n[3RD  HIGHEST CASH DEFICIT] DAY:{deficits[2][1]}, AMOUNT: SGD{abs(deficits[2][0])}"
+        print(f"[2ND  HIGHEST CASH DEFICIT] DAY:{deficits[1][1]}, AMOUNT: SGD{abs(deficits[1][0])}")
+        print(f"[3RD  HIGHEST CASH DEFICIT] DAY:{deficits[2][1]}, AMOUNT: SGD{abs(deficits[2][0])}")
 
 # if __name__ == "__main__":
 # # Specify the file path
