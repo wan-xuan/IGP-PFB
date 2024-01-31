@@ -16,14 +16,5 @@ def read_overheads(file_path):
 
         return overHead
 
-def analyze_highest_overhead(overheads):
-    highest_amount = 0
-    highest_type = ""
 
-    for expense_type, amount in overheads:
-        if amount > highest_amount:
-            highest_amount = amount
-            highest_type = expense_type
-
-    return f"[HIGHEST OVERHEAD] {highest_type}:{highest_amount}%"
 
