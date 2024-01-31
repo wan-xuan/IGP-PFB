@@ -1,5 +1,3 @@
-# Create a new Python file, e.g., overhead_module.py
-
 from pathlib import Path
 import csv
 
