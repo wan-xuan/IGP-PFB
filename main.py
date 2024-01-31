@@ -19,16 +19,5 @@ if overheads_data:
 else:
     print("No data found in the Overheads file")
 
-if cash_on_hand_data:
-    cash_on_hand_result = coh.analyze_cash_on_hand(cash_on_hand_data)
-    print(cash_on_hand_result)
-else:
-    print("No data found in the Cash-On-Hand file")
-
-if profit_loss_data:
-    profit_loss_result = profit_loss.analyze_profit_n_loss(profit_loss_data)  # Fix: Use profit_loss instead of profit_loss2
-    print(profit_loss_result)
-else:
-    print("No data found in the Profit and Loss file")
 
 
