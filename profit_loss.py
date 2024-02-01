@@ -40,21 +40,7 @@ def analyze_profit_n_loss(PnL):
         return f"[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN THE PREVIOUS DAY\
             \n[HIGHEST PROFIT DEFICIT] DAY:{profit_n_loss_changesday}, AMOUNT: SGD{profit_n_loss_changes}"
     else:
-        # print(f"[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN THE PREVIOUS DAY")
-        print(F"[HIGHEST PROFIT DEFICIT] DAY: {highestdecrementday}, AMOUNT: SGD{abs(highestdecrement)}")
-
         deficits.sort(reverse=True)
-        print(f"[2ND  HIGHEST NET PROFIT DEFICIT] DAY:{deficits[1][1]}, AMOUNT: SGD{abs(deficits[1][0])}")
-        print(f"[3RD  HIGHEST NET PROFIT DEFICIT] DAY:{deficits[2][1]}, AMOUNT: SGD{abs(deficits[2][0])}")
-
-if __name__ == "__pain__":
-# Specify the file path
-    np = Path.cwd() / "profit-and-loss-sgd.csv" #profit-and-loss-sgd.csv
-
-# Reading and analyzing the profit_n_loss-On-Hand file
-    profit_n_loss_data = read_csv(np)
-    if profit_n_loss_data :
-        profit_n_loss_result = analyze_profit_n_loss(profit_n_loss_data)
-        print(profit_n_loss_result)
-    else:
-        print("No data found in the file")
+        return f"[HIGHEST NET PROFIT DEFICIT] DAY:{deficits[0][1]}, AMOUNT: SGD{abs(deficits[0][0])}\
+                \n[2ND  HIGHEST NET PROFIT DEFICIT] DAY:{deficits[1][1]}, AMOUNT: SGD{abs(deficits[1][0])}\
+                \n[3RD  HIGHEST NET PROFIT DEFICIT] DAY:{deficits[2][1]}, AMOUNT: SGD{abs(deficits[1][0])}"
