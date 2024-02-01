@@ -3,12 +3,12 @@ import coh
 import profit_loss
 import overheads
 
-# Define file paths
-fp = Path.cwd() / "cash-on-hand-sgd.csv" #cash-on-hand-sgd.csv
-np = Path.cwd() / "profit-and-loss-sgd.csv" #profit-and-loss-sgd.csv
-qp = Path.cwd() / "overheads-day-90.csv" #overheads-day-90.csv
+# Defines file path
+fp = Path.cwd() / "cash-on-hand-sgd.csv"
+np = Path.cwd() / "profit-and-loss-sgd.csv" 
+qp = Path.cwd() / "overheads-day-90.csv" 
 
-# Use functions from the imported modules
+# Use functions from imported modules
 cash_on_hand_data = coh.read_csv(fp)
 profit_loss_data = profit_loss.read_csv(np)
 overheads_data = overheads.read_overheads(qp)
@@ -26,7 +26,7 @@ else:
     print("No data found in the Cash-On-Hand file")
 
 if profit_loss_data:
-    profit_loss_result = profit_loss.analyze_profit_n_loss(profit_loss_data) # Fix: Use profit_loss instead of profit_loss2
+    profit_loss_result = profit_loss.analyze_profit_n_loss(profit_loss_data) 
     print(profit_loss_result)
 else:
     print("No data found in the Profit and Loss file")
