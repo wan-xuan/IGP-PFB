@@ -10,11 +10,19 @@ def read_overheads(file_path):
         highest = 0
 
         for row in reader:
-            expense_type = row[0]
-            amount = float(row[1])
+            expense_type = row[0] #type of expenses
+            amount = float(row[1]) #the percentage of each type out of 100%
             overHead.append((expense_type, amount))
 
         return overHead
 
+def analyze_highest_overhead(overheads):
+    highest_amount = 0
+    highest_type = ""
 
+    for expense_type, amount in overheads:
+        if amount > highest_amount:
+            highest_amount = amount
+            highest_type = expense_type
 
+    return f"[HIGHEST OVERHEAD] {highest_type}:{highest_amount}%"
