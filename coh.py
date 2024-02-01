@@ -26,12 +26,13 @@ def analyze_cash_on_hand(CoH):
                 cash_changesday = CoH[i+1][0]  # Use the day of the second data point
         else:
             decrease += 1
-            print(f"[CASH DEFICIT] DAY: {CoH[i][0]+1}, AMOUNT: SGD{abs(CoH[i][1] - CoH[i+1][1])}")
-            deficits.append((abs(CoH[i][1] - CoH[i+1][1]), CoH[i][0]+1))
-            
-            if (CoH[i][1] - CoH[i+1][1]) < cash_changes:
+            if (CoH[i][1] - CoH[i+1][1]) > cash_changes:
                 cash_changes = (CoH[i][1] - CoH[i+1][1])
                 cash_changesday = CoH[i][0] + 1
+            elif increase >0 and decrease >0:
+                print(f"[CASH DEFICIT] DAY: {CoH[i][0]+1}, AMOUNT: SGD{abs(CoH[i][1] - CoH[i+1][1])}")
+                deficits.append((abs(CoH[i][1] - CoH[i+1][1]), CoH[i][0]+1))
+
 
     if increase > 0 and decrease == 0:
         return f"[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\
@@ -39,12 +40,9 @@ def analyze_cash_on_hand(CoH):
     elif increase == 0 and decrease > 0:
         return f"[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS DAY\
             \n[CASH DEFICIT] DAY:{cash_changesday}, AMOUNT: SGD{cash_changes}"
-        
-
     else:
-
         deficits.sort(reverse=True)
-
-        return f"[HIGHEST CASH DEFICIT] DAY:{deficits[0][1]}, AMOUNT: SGD{abs(deficits[0][0])}\
+        
+    return f"[HIGHEST CASH DEFICIT] DAY:{deficits[0][1]}, AMOUNT: SGD{abs(deficits[0][0])}\
         \n[2ND HIGHEST CASH DEFICIT] DAY:{deficits[1][1]}, AMOUNT: SGD{abs(deficits[1][0])}\
         \n[3RD HIGHEST CASH DEFICIT] DAY:{deficits[2][1]}, AMOUNT: SGD{abs(deficits[2][0])}"
