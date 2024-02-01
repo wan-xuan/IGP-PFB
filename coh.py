@@ -42,21 +42,9 @@ def analyze_cash_on_hand(CoH):
         
 
     else:
-        # print(f"[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS DAY")
-        print(F"[HIGHEST PROFIT DEFICIT] DAY: {highestdecrementday}, AMOUNT: SGD{abs(highestdecrement)}")
 
         deficits.sort(reverse=True)
-        print(f"[2ND  HIGHEST CASH DEFICIT] DAY:{deficits[1][1]}, AMOUNT: SGD{abs(deficits[1][0])}")
-        print(f"[3RD  HIGHEST CASH DEFICIT] DAY:{deficits[2][1]}, AMOUNT: SGD{abs(deficits[2][0])}")
 
-# if __name__ == "__main__":
-# # Specify the file path
-#     fp = Path.cwd() / "cash-on-hand-sgd.csv" #cash-on-hand-sgd.csv
-
-# # Reading and analyzing the Cash-On-Hand file
-#     cash_on_hand_data = read_csv(fp)
-#     if cash_on_hand_data:
-#         cash_on_hand_result = analyze_cash_on_hand(cash_on_hand_data)
-#         print(cash_on_hand_result)
-#     else:
-#         print("No data found in the file")
+        return f"[HIGHEST CASH DEFICIT] DAY:{deficits[0][1]}, AMOUNT: SGD{abs(deficits[0][0])}\
+        \n[2ND HIGHEST CASH DEFICIT] DAY:{deficits[1][1]}, AMOUNT: SGD{abs(deficits[1][0])}\
+        \n[3RD HIGHEST CASH DEFICIT] DAY:{deficits[2][1]}, AMOUNT: SGD{abs(deficits[2][0])}"
