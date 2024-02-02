@@ -1,7 +1,7 @@
 from pathlib import Path
 import csv
 
-#reads csv 
+#this function reads the CSV file
 def read_csv(file_path):
     with file_path.open(mode='r', encoding='UTF-8', newline="") as file:
         reader = csv.reader(file)
@@ -14,7 +14,8 @@ def read_csv(file_path):
             CoH.append((int(row[0]), int(row[1]))) 
         return CoH
 
-def analyze_cash_on_hand(CoH):
+#this function analyses the list of tuples representing cash on hand data
+def analyse_cash_on_hand(CoH):
     cash_changes = 0
     cash_changesday = 0
     increase = 0
@@ -45,6 +46,8 @@ def analyze_cash_on_hand(CoH):
              #will only print if cash on hand fluctuates (scenario 3)
             elif increase >0 and decrease >0: 
                 print(f"[CASH DEFICIT] DAY: {CoH[i+1][0]}, AMOUNT: SGD{abs(CoH[i][1] - CoH[i+1][1])}") 
+                #abs was used to remove the (-) sign just like the examples given
+                #the code below, adds every deficit calculated and its day to the list 
                 deficits.append((abs(CoH[i][1] - CoH[i+1][1]), CoH[i+1][0])) 
 
     #If always increasing, it will return the output below
@@ -58,7 +61,7 @@ def analyze_cash_on_hand(CoH):
     else:
         #sorts the data into descending order
         deficits.sort(reverse=True)
-    #If COH fluctuates,  it will return the output below
+    #If COH fluctuates (Scenario 3),  it will return the output below
     return f"[HIGHEST CASH DEFICIT] DAY:{deficits[0][1]}, AMOUNT: SGD{abs(deficits[0][0])}\
         \n[2ND HIGHEST CASH DEFICIT] DAY:{deficits[1][1]}, AMOUNT: SGD{abs(deficits[1][0])}\
         \n[3RD HIGHEST CASH DEFICIT] DAY:{deficits[2][1]}, AMOUNT: SGD{abs(deficits[2][0])}"
