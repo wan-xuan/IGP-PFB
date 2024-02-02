@@ -4,9 +4,9 @@ import profit_loss
 import overheads
 
 # Defines file path
-fp = Path.cwd() / "cash_on_hand.csv"
-np = Path.cwd() / "profit_and_loss.csv" 
-qp = Path.cwd() / "overheads.csv" 
+fp = Path.cwd() / "Cash_on_Hand.csv"
+np = Path.cwd() / "Profit_and_Loss.csv" 
+qp = Path.cwd() / "Overheads.csv" 
 
 #imports data to its variable
 cash_on_hand_data = coh.read_csv(fp)
